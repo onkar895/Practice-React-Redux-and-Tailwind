@@ -3,10 +3,11 @@
 import React, { useState, useRef } from 'react'
 import Google from './assets/google.png'
 import { checkValidData } from './utils/Validate'
-import { firebaseAuth } from './utils/Firebase'
+import { firebaseAuth, provider } from './utils/Firebase'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { signInWithPopup, onAuthStateChanged, signInWithRedirect } from 'firebase/auth'
 
 const Form = () => {
   const [isSignIn, setIsSignIn] = useState(true)
@@ -88,8 +89,35 @@ const Form = () => {
     }
   }
 
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await signInWithPopup(firebaseAuth, provider)
+      // await signInWithRedirect(firebaseAuth, provider)
+      console.log(res)
+      toast.success(
+        <div>
+          <div style={{ fontSize: '14px', textAlign: "center", color: 'gray' }}>
+            "Congratulations!" Signed In with google successfully .
+          </div>
+        </div>,
+        {
+          position: "top-center",
+          newestOnTop: true,
+          autoClose: 5000,
+          closeButton: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+        }
+      );
+    } catch (error) {
+      console.log(error)
+      toast.error(error.message);
+    }
+  }
+
   return (
-    <div className='bg-white w-[65%] p-10 rounded-3xl border-2 border-gray-200 shadow-2xl'>
+    <div className='bg-white md:w-[65%] p-10 rounded-3xl border-2 border-gray-200 shadow-2xl'>
       <h1 className='text-3xl font-semibold text-center'>Welcome Back 😊</h1>
       <p className='font-medium text-sm text-center text-gray-500 mt-3'>Welcome back! Please enter your details</p>
       <div className='mt-5'>
@@ -152,7 +180,10 @@ const Form = () => {
           </button>
           {
             isSignIn &&
-            <button className='flex border-2 border-gray-200 rounded-xl px-3 py-2 justify-center items-center gap-x-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out'>
+            <button
+              className='flex border-2 border-gray-200 rounded-xl px-3 py-2 justify-center items-center gap-x-2 active:scale-[.98] active:duration-75 transition-all hover:scale-[1.01] ease-in-out'
+              onClick={handleGoogleSignIn}
+            >
               <img className='w-5' src={Google} alt="Google Logo" />
               <span className='text-sm hover:font-bold'>Sign in with Google</span>
             </button>
