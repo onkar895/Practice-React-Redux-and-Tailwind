@@ -55,7 +55,7 @@ const Form = () => {
           {
             position: "top-center",
             newestOnTop: true,
-            autoClose: 5000,
+            autoClose: 3000,
             closeButton: true,
             closeOnClick: true,
             pauseOnHover: true,
@@ -79,7 +79,7 @@ const Form = () => {
           {
             position: "top-center",
             newestOnTop: true,
-            autoClose: 5000,
+            autoClose: 3000,
             closeButton: true,
             closeOnClick: true,
             pauseOnHover: true,
@@ -107,7 +107,7 @@ const Form = () => {
         {
           position: "top-center",
           newestOnTop: true,
-          autoClose: 5000,
+          autoClose: 3000,
           closeButton: true,
           closeOnClick: true,
           pauseOnHover: true,
