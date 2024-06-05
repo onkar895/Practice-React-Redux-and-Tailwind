@@ -16,9 +16,12 @@ const Form = () => {
   const [errMessage, setErrMessage] = useState('')
 
   // useRef is a React Hook that lets you reference a value that’s not needed for rendering.
+  // It returns a mutable ref object whose .current property is initialized to the passed argument (initialValue). 
+  // The returned object will persist for the full lifetime of the component.
   // const ref = useRef(initialValue)
-  const email = useRef(null)
-  const password = useRef(null)
+
+  const email = useRef(null) // useRef is used to create a ref object email
+  const password = useRef(null) // useRef is used to create a ref object password
   // I want to refer this email and password to my textfields
 
   const toggleSignInForm = () => {
@@ -139,7 +142,7 @@ const Form = () => {
           <input
             className='w-full border-2 border-gray-200 rounded-lg px-3 py-2 bg-transparent text-sm'
             type="text"
-            ref={email}
+            ref={email}  // useRef is used to create a ref object email
             placeholder='Enter your email' />
         </div>
         <div className='mt-2'>
@@ -147,7 +150,7 @@ const Form = () => {
           <input
             className='w-full border-2 border-gray-200 rounded-lg px-3 py-2 bg-transparent text-sm'
             type="password"
-            ref={password}
+            ref={password} // useRef is used to create a ref object password
             placeholder='Enter your password' />
         </div>
         {
