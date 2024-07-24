@@ -18,7 +18,7 @@ const SideNavbar = () => {
         <div className="text-white text-2xl font-bold">SideBar</div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white focus:outline-none"
+          className="text-white focus:outline-none text-2xl font-bold"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path

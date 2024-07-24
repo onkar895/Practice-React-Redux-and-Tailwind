@@ -27,13 +27,8 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full ${isScrolled || navOpen ? 'bg-black' : 'bg-slate-800'
+      className={`fixed top-0 left-0 w-full bg-black ${navOpen ? 'h-96' : ''
         }`}
-      style={{
-        color: navOpen ? 'white' : '',
-        height: navOpen ? '24rem' : 'auto',
-        zIndex: 2,
-      }}
     >
       <div className="mx-auto p-5 flex justify-between items-center text-white">
         <div className="text-2xl font-bold">NavBar</div>
