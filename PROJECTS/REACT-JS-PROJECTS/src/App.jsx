@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import NavBar from './Navbar'
+import NavBar from './Responsive NavBar/Navbar'
 import ToDoList from './ToDoList';
+import SideNavbar from './Responsive NavBar/SideNavbar';
+
 
 const App = () => {
 
@@ -9,6 +11,7 @@ const App = () => {
     <>
       <div>
         <NavBar />
+        <SideNavbar />
         <ToDoList />
       </div>
     </>
