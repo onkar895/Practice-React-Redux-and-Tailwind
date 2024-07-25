@@ -5,6 +5,7 @@ import SideNavbar from './Responsive NavBar/SideNavbar';
 import Nav from './Responsive NavBar/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
+import ContactNav from './Responsive NavBar/ContactNav';
 
 const App = () => {
 
@@ -18,7 +19,7 @@ const App = () => {
             <Route exact path='/navbar1' element={<NavBar />} />
             <Route exact path='/sidenavbar' element={<SideNavbar />} />
             <Route exact path='/todolist' element={<ToDoList />} />
-            <Route exact path='/contact' element={''} />
+            <Route exact path='/contact' element={<ContactNav />} />
           </Routes>
         </Router>
       </div>
