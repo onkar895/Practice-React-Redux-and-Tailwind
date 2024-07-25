@@ -4,15 +4,15 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const Nav = () => {
   const Links = [
     { name: "HOME", link: "/" },
-    { name: "SERVICE", link: "/" },
-    { name: "ABOUT", link: "/" },
-    { name: "BLOG'S", link: "/" },
-    { name: "CONTACT", link: "/" },
+    { name: "NAVBAR1", link: "/navbar1" },
+    { name: "SIDENAVBAR", link: "/sidenavbar" },
+    { name: "TODOLIST", link: "/todolist" },
+    { name: "CONTACT", link: "/contact" },
   ];
   const [open, setOpen] = useState(false);
 
   return (
-    <div className='shadow-md w-full fixed top-0 left-0 z-50'>
+    <div className='shadow-md w-full fixed top-0 left-0'>
       <div className='md:flex items-center justify-between bg-white py-4 px-5'>
         <div className='font-bold text-2xl cursor-pointer text-gray-800'>
           Designer
