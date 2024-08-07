@@ -6,6 +6,7 @@ import Nav from './Responsive NavBar/Nav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import ContactNav from './Responsive NavBar/ContactNav';
+import Homepage from './FreeCodeCampProjects/Homepage';
 
 const App = () => {
 
@@ -18,8 +19,9 @@ const App = () => {
             <Route exact path='/' element={<Home />} />
             <Route exact path='/navbar1' element={<NavBar />} />
             <Route exact path='/sidenavbar' element={<SideNavbar />} />
-            <Route exact path='/todolist' element={<ToDoList />} />
             <Route exact path='/contact' element={<ContactNav />} />
+            <Route exact path='/todolist' element={<ToDoList />} />
+            <Route exact path='/homepage' element={<Homepage />} />
           </Routes>
         </Router>
       </div>
