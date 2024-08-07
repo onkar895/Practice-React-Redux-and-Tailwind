@@ -14,7 +14,7 @@ const Accordion = () => {
   }
 
   const handleMultiSelection = (getCurrentId) => {
-    let copyMultiple = [...multiple]   // Creating a Copy of the Current State
+    let copyMultiple = [...multiple]   // Creating a Copy of the Current State : The spread operator [...multiple] is used to create a new array that is a shallow copy of the multiple array. This prevents direct mutation of the state.
     const findIndexOfCurrentId = copyMultiple.indexOf(getCurrentId)
     console.log(findIndexOfCurrentId)
     if (findIndexOfCurrentId === -1) copyMultiple.push(getCurrentId)
@@ -47,7 +47,13 @@ const Accordion = () => {
                       enableMultiSelection
                         ? () => handleMultiSelection(dataItems.id) : () => handleSingleSelection(dataItems.id)}>
                     Que: {dataItems.question}
-                    <div>+</div>
+                    <div className='text-2xl'>
+                      {
+                        enableMultiSelection
+                          ? (multiple.indexOf(dataItems.id) !== -1 ? "-" : "+")
+                          : (selected === dataItems.id ? "-" : "+")
+                      }
+                    </div>
                   </div>
                   <div className=''>
                     {
