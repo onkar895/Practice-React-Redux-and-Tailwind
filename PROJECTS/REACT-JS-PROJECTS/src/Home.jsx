@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <Nav />
-      <div className='my-36 bg-black text-white font-bold block md:w-[60%] mx-auto text-center py-5 text-2xl'>
+      <div className='my-36 bg-black text-white font-bold block md:w-[50%] m-auto text-center py-5  text-2xl'>
         <h1>Different Responsive Navigation Bar and Basic TodoList App</h1>
       </div>
     </div>
