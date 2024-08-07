@@ -26,11 +26,11 @@ const Nav = () => {
 
         <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-40 left-0 w-full md:w-auto md:pl-0 pl-6 transition-all duration-500 ease-in ${open ? 'top-16' : 'top-[-490px]'}`}>
           {Links.map((link) => (
-            <li key={link.name} className='md:ml-8 text-sm md:my-0 my-3'>
+            <li key={link.name} className='md:ml-8 text-md font-bold md:my-0 my-3'>
               <NavLink
                 to={link.link}
                 className={({ isActive }) =>
-                  `text-black hover:text-black/50 transition-all duration-500 ease-in-out ${isActive ? "text-indigo-700" : ""}`}
+                  `text-black hover:text-black/50 transition-all duration-500 ease-in-out ${isActive ? "text-indigo-600" : ""}`}
               >
                 {link.name}
               </NavLink>
