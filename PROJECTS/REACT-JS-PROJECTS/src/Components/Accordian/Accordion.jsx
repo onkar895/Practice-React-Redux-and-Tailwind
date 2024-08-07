@@ -1,4 +1,4 @@
-// Single Selection Accordian
+// Single Selection and Multi Accordian
 
 import React, { useState } from 'react'
 import data from './data'
@@ -14,7 +14,7 @@ const Accordion = () => {
   }
 
   const handleMultiSelection = (getCurrentId) => {
-    let copyMultiple = [...multiple]
+    let copyMultiple = [...multiple]   // Creating a Copy of the Current State
     const findIndexOfCurrentId = copyMultiple.indexOf(getCurrentId)
     console.log(findIndexOfCurrentId)
     if (findIndexOfCurrentId === -1) copyMultiple.push(getCurrentId)
