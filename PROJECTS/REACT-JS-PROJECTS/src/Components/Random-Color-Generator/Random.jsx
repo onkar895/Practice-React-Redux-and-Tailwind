@@ -8,6 +8,7 @@ const Random = () => {
     return Math.floor(Math.random() * length);
   };
 
+  // Hexadecimal (hex) is a numbering system that uses 16 symbols to represent numbers, including the digits 0–9 and the letters A–F. In hex, each digit can represent a value from 0–15 in decimal, with A–F representing 10–15. For example, A represents 10, B represents 11, and so on.
   const handleCreateRandomHexColor = () => {
     const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
     let hexColor = '#';

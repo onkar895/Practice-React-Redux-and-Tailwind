@@ -27,7 +27,7 @@ const Accordion = () => {
 
   return (
     <>
-      <div className='my-28 block m-auto md:w-[60%] p-4 text-center font-extrabold shadow-2xl rounded-xl'>
+      <div className='block m-auto md:w-[60%] p-4 text-center font-extrabold shadow-2xl rounded-xl'>
         <button className='bg-indigo-800 text-white py-3 w-[50%] m-auto hover:bg-indigo-500 mb-5' onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
           {
             enableMultiSelection ? (
