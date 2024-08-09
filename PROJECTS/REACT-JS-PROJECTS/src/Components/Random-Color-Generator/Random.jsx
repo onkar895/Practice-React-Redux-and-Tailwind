@@ -31,6 +31,8 @@ const Random = () => {
     else handleCreateRandomHexColor();
   }, [typeOfColor]);
 
+  const Effects = "bg-white px-5 py-1 rounded-md hover:brightness-150 mr-5 hover:transition-transform hover:ease-in-out hover:duration-500 hover:-translate-y-1 transition-transform duration-500 group-hover:opacity-80 group-hover:bg-black group-hover:text-white hover:!bg-white hover:!text-black hover:!opacity-100"
+
   return (
     <>
       <div
@@ -38,24 +40,26 @@ const Random = () => {
         style={{ backgroundColor: color }}
       >
         <h1 className="text-3xl text-white">Random Color Generator</h1>
-        <button
-          className="bg-white px-5 py-1 rounded-md hover:brightness-150 mr-5"
-          onClick={() => setTypeOfColor('hex')}
-        >
-          Create HEX Color
-        </button>
-        <button
-          className="bg-white px-5 py-1 rounded-md hover:brightness-150 mr-5"
-          onClick={() => setTypeOfColor('rgb')}
-        >
-          Create RGB Color
-        </button>
-        <button
-          className="bg-white px-5 py-1 rounded-md hover:brightness-150 mr-5"
-          onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor}
-        >
-          Create Random Color
-        </button>
+        <div className='group'>
+          <button
+            className={Effects}
+            onClick={() => setTypeOfColor('hex')}
+          >
+            Create HEX Color
+          </button>
+          <button
+            className={Effects}
+            onClick={() => setTypeOfColor('rgb')}
+          >
+            Create RGB Color
+          </button>
+          <button
+            className={Effects}
+            onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor}
+          >
+            Create Random Color
+          </button>
+        </div>
         <div>
           <div className="bg-white rounded-md block m-auto w-[35vw] hover:brightness-150 font-bold text-2xl py-5">
             <h2>{typeOfColor === 'rgb' ? 'Rgb Color' : 'Hex Color'}</h2>

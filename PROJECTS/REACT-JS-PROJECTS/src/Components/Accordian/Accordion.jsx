@@ -42,7 +42,7 @@ const Accordion = () => {
             data && data.length > 0 ? (
               data.map((dataItems) => (
                 <div className=' bg-white text-indigo-800 hover:text-indigo-500 cursor-pointer py-3 px-5 text-justify border-b-2 border-blue-100 rounded-xl' key={dataItems.id}>
-                  <div className='flex items-center justify-between gap-10'
+                  <div className={`flex items-center justify-between gap-10`}
                     onClick={
                       enableMultiSelection
                         ? () => handleMultiSelection(dataItems.id) : () => handleSingleSelection(dataItems.id)}>
@@ -55,7 +55,7 @@ const Accordion = () => {
                       }
                     </div>
                   </div>
-                  <div className=''>
+                  <div>
                     {
                       enableMultiSelection ?
                         multiple.indexOf(dataItems.id) !== -1 &&
