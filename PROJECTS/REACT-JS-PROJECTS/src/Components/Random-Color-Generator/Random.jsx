@@ -31,7 +31,7 @@ const Random = () => {
     else handleCreateRandomHexColor();
   }, [typeOfColor]);
 
-  const Effects = "bg-white px-5 py-1 rounded-md hover:brightness-150 mr-5 hover:transition-transform hover:ease-in-out hover:duration-500 hover:-translate-y-1 transition-transform duration-500 group-hover:opacity-80 group-hover:bg-black group-hover:text-white hover:!bg-white hover:!text-black hover:!opacity-100"
+  const Effects = "bg-white px-5 py-1 rounded-md hover:brightness-150 hover:transition-transform hover:ease-in-out hover:duration-500 hover:-translate-y-1 transition-transform duration-500 group-hover:opacity-80 group-hover:bg-black group-hover:text-white hover:!bg-white hover:!text-black hover:!opacity-100"
 
   return (
     <>
@@ -40,7 +40,7 @@ const Random = () => {
         style={{ backgroundColor: color }}
       >
         <h1 className="text-3xl text-white">Random Color Generator</h1>
-        <div className='group'>
+        <div className='group space-x-5 max-sm:space-y-5'>
           <button
             className={Effects}
             onClick={() => setTypeOfColor('hex')}
