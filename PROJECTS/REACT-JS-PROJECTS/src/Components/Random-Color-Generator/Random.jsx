@@ -36,34 +36,36 @@ const Random = () => {
   return (
     <>
       <div
-        className="w-[100vw] h-[50vh] text-black font-bold block m-auto text-center space-y-10 py-5"
+        className="w-[100vw] h-[100vh] block m-auto text-center relative"
         style={{ backgroundColor: color }}
       >
-        <h1 className="text-3xl text-white">Random Color Generator</h1>
-        <div className='group space-x-5 max-sm:space-y-5'>
-          <button
-            className={Effects}
-            onClick={() => setTypeOfColor('hex')}
-          >
-            Create HEX Color
-          </button>
-          <button
-            className={Effects}
-            onClick={() => setTypeOfColor('rgb')}
-          >
-            Create RGB Color
-          </button>
-          <button
-            className={Effects}
-            onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor}
-          >
-            Create Random Color
-          </button>
-        </div>
-        <div>
-          <div className="bg-white rounded-md block m-auto w-[35vw] hover:brightness-150 font-bold text-2xl py-5">
-            <h2>{typeOfColor === 'rgb' ? 'Rgb Color' : 'Hex Color'}</h2>
-            <h3>{color}</h3>
+        <div className='space-y-10 py-5 text-black font-bold absolute top-1/4 left-1/2 transform -translate-x-1/2 max-sm:w-[100vw]'>
+          <h1 className="text-4xl text-white ">Random Color Generator</h1>
+          <div className='group space-x-5 max-sm:space-y-5'>
+            <button
+              className={Effects}
+              onClick={() => setTypeOfColor('hex')}
+            >
+              Create HEX Color
+            </button>
+            <button
+              className={Effects}
+              onClick={() => setTypeOfColor('rgb')}
+            >
+              Create RGB Color
+            </button>
+            <button
+              className={Effects}
+              onClick={typeOfColor === 'hex' ? handleCreateRandomHexColor : handleCreateRandomRgbColor}
+            >
+              Create Random Color
+            </button>
+          </div>
+          <div>
+            <div className="bg-white rounded-md block m-auto w-[35vw] max-sm:w-[85vw] hover:brightness-150 font-bold text-2xl py-5 ">
+              <h2>{typeOfColor === 'rgb' ? 'Rgb Color' : 'Hex Color'}</h2>
+              <h3>{color}</h3>
+            </div>
           </div>
         </div>
       </div>

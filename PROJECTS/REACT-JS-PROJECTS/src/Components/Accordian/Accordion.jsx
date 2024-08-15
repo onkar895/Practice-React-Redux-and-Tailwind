@@ -27,55 +27,57 @@ const Accordion = () => {
 
   return (
     <>
-      <div className='block m-auto md:w-[60%] p-4 text-center font-extrabold shadow-2xl rounded-xl'>
-        <button className='bg-indigo-800 text-white py-3 w-[50%] m-auto hover:bg-indigo-500 mb-5' onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
-          {
-            enableMultiSelection ? (
-              <span>Enable Single Selection</span>
-            ) : (
-              <span>Enable Multi Selection</span>
-            )
-          }
-        </button>
-        <div className='space-y-5'>
-          {
-            data && data.length > 0 ? (
-              data.map((dataItems) => (
-                <div className=' bg-white text-indigo-800 hover:text-indigo-500 cursor-pointer py-3 px-5 text-justify border-b-2 border-blue-100 rounded-xl' key={dataItems.id}>
-                  <div className={`flex items-center justify-between gap-10`}
-                    onClick={
-                      enableMultiSelection
-                        ? () => handleMultiSelection(dataItems.id) : () => handleSingleSelection(dataItems.id)}>
-                    Que: {dataItems.question}
-                    <div className='text-2xl'>
-                      {
+      <div className='block m-auto w-[100vw] h-[100vh] p-4 text-center font-extrabold shadow-2xl rounded-xl relative'>
+        <div className='w-[100vw] md:w-[60vw] absolute top-1/4 left-1/2 transform -translate-x-1/2'>
+          <button className='bg-indigo-800 text-white py-3 w-[50%] m-auto hover:bg-indigo-500 mb-5' onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
+            {
+              enableMultiSelection ? (
+                <span>Enable Single Selection</span>
+              ) : (
+                <span>Enable Multi Selection</span>
+              )
+            }
+          </button>
+          <div className='space-y-5'>
+            {
+              data && data.length > 0 ? (
+                data.map((dataItems) => (
+                  <div className=' bg-white text-indigo-800 hover:text-indigo-500 cursor-pointer py-3 px-5 border-b-2 border-blue-100 rounded-xl text-start' key={dataItems.id}>
+                    <div className={`flex items-center justify-between gap-10`}
+                      onClick={
                         enableMultiSelection
-                          ? (multiple.indexOf(dataItems.id) !== -1 ? "-" : "+")
-                          : (selected === dataItems.id ? "-" : "+")
-                      }
+                          ? () => handleMultiSelection(dataItems.id) : () => handleSingleSelection(dataItems.id)}>
+                      Que: {dataItems.question}
+                      <div className='text-2xl'>
+                        {
+                          enableMultiSelection
+                            ? (multiple.indexOf(dataItems.id) !== -1 ? "-" : "+")
+                            : (selected === dataItems.id ? "-" : "+")
+                        }
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    {
-                      enableMultiSelection ?
-                        multiple.indexOf(dataItems.id) !== -1 &&
-                        (<h5> Ans: {dataItems.answer}</h5>) :
-                        selected === dataItems.id &&
-                        (<h5> Ans: {dataItems.answer}</h5>)
-                    }
-                    {/* {
+                    <div className='text-justify'>
+                      {
+                        enableMultiSelection ?
+                          multiple.indexOf(dataItems.id) !== -1 &&
+                          (<h5> Ans: {dataItems.answer}</h5>) :
+                          selected === dataItems.id &&
+                          (<h5> Ans: {dataItems.answer}</h5>)
+                      }
+                      {/* {
                       selected === dataItems.id || multiple.indexOf(dataItems.id !== -1
                         ? (<h5> Ans: {dataItems.answer}</h5>)
                         : null
                       )
                     } */}
+                    </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              <div>No Data Found !</div>
-            )
-          }
+                ))
+              ) : (
+                <div>No Data Found !</div>
+              )
+            }
+          </div>
         </div>
       </div >
     </>
