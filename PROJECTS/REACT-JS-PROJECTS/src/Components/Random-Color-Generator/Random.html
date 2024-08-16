@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Color Generator</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+      }
+      .content {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .space-y-10 {
+        margin-bottom: 10px;
+      }
+      .button-group {
+        display: flex;
+        gap: 10px;
+      }
+      .button {
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.5s ease;
+      }
+      .button:hover {
+        brightness: 150%;
+        transform: translateY(-5px);
+      }
+      .color-display {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="colorContainer">
+      <div class="content">
+        <h1 class="space-y-10">Random Color Generator</h1>
+        <div class="button-group">
+          <button class="button" id="hexBtn">Create HEX Color</button>
+          <button class="button" id="rgbBtn">Create RGB Color</button>
+          <button class="button" id="randomBtn">Create Random Color</button>
+        </div>
+        <div class="color-display" id="colorDisplay">
+          <h2 id="colorType">Hex Color</h2>
+          <h3 id="colorCode">#000000</h3>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const colorContainer = document.getElementById("colorContainer");
+      const hexBtn = document.getElementById("hexBtn");
+      const rgbBtn = document.getElementById("rgbBtn");
+      const randomBtn = document.getElementById("randomBtn");
+      const colorType = document.getElementById("colorType");
+      const colorCode = document.getElementById("colorCode");
+
+      let typeOfColor = "hex";
+      let color = "#000000";
+
+      const randomColorUtility = (length) => Math.floor(Math.random() * length);
+
+      const handleCreateRandomHexColor = () => {
+        const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+        let hexColor = "#";
+
+        for (let i = 0; i < 6; i++) {
+          hexColor += hex[randomColorUtility(hex.length)];
+        }
+        color = hexColor;
+        updateDisplay();
+      };
+
+      const handleCreateRandomRgbColor = () => {
+        const r = randomColorUtility(256);
+        const g = randomColorUtility(256);
+        const b = randomColorUtility(256);
+        color = `rgb(${r}, ${g}, ${b})`;
+        updateDisplay();
+      };
+
+      const updateDisplay = () => {
+        colorContainer.style.backgroundColor = color;
+        colorCode.textContent = color;
+        colorType.textContent = typeOfColor === "rgb" ? "RGB Color" : "Hex Color";
+      };
+
+      hexBtn.addEventListener("click", () => {
+        typeOfColor = "hex";
+        handleCreateRandomHexColor();
+      });
+
+      rgbBtn.addEventListener("click", () => {
+        typeOfColor = "rgb";
+        handleCreateRandomRgbColor();
+      });
+
+      randomBtn.addEventListener("click", () => {
+        typeOfColor === "hex" ? handleCreateRandomHexColor() : handleCreateRandomRgbColor();
+      });
+
+      // Initialize with default color
+      updateDisplay();
+    </script>
+  </body>
+</html>
